@@ -329,7 +329,7 @@ public class VillagerNameCommand {
 
 	private static void sendToOps(CommandContext<ServerCommandSource> ctx, Text text) {
 		ctx.getSource().getServer().getPlayerManager().getPlayerList().forEach((serverPlayerEntity -> {
-			if (ctx.getSource().getServer().getPlayerManager().isOperator(serverPlayerEntity.getGameProfile())) {
+			if (ctx.getSource().getServer().getPlayerManager().isOperator(serverPlayerEntity.getPlayerConfigEntry())) {
 				serverPlayerEntity.sendMessage(text, false);
 			}
 		}));

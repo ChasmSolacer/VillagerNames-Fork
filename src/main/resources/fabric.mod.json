@@ -15,12 +15,6 @@
     ],
     "client": [
       "io.github.overlordsiii.villagernames.client.VillagerNamesClient"
-    ],
-    "modmenu": [
-      "io.github.overlordsiii.villagernames.integration.ModMenuIntegration"
-    ],
-    "cardinal-components-level": [
-      "io.github.overlordsiii.villagernames.VillagerNames"
     ]
   },
   "license": "MIT",
@@ -36,8 +30,5 @@
     "minecraft": "~1.21.6"
   },
   "custom": {
-    "cardinal-components": [
-      "villagernames:intcomponent"
-    ]
   }
 }

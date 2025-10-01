@@ -63,13 +63,15 @@ dependencies {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
-	modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}") {
-		exclude module: 'fabric-api' // includes bad Fabric API
-	}
+		// todo: Uncomment after Mod Menu updates to 1.21.9
+//	modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}") {
+//		exclude module: 'fabric-api' // includes bad Fabric API
+//	}
 
-	modApi include("org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}")
-
-	modApi include("org.ladysnake.cardinal-components-api:cardinal-components-level:${project.cca_version}")
+		// todo: Uncomment after Cardinal Components API updates to 1.21.9
+//	modApi include("org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}")
+//
+//	modApi include("org.ladysnake.cardinal-components-api:cardinal-components-level:${project.cca_version}")
 
 	// Guard Villagers mod is out-of-date
 	//modImplementation 'curse.maven:guardvillagers-571503:5427036'

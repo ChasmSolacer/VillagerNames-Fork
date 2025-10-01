@@ -105,11 +105,12 @@ public class VillagerUtil {
 	}
 
 	public static void createRavagerNames(ServerWorld world, RavagerEntity entity) {
-		if (!entity.hasCustomName()) {
-			int counter = VillagerNames.INT_COMPONENT.get(world.getLevelProperties()).getValue() + 1;
-			entity.setCustomName(Text.literal("Test Subject " + counter).formatted(CONFIG.villagerGeneralConfig.villagerTextFormatting.getFormatting()));
-			VillagerNames.INT_COMPONENT.get(world.getLevelProperties()).setValue(counter);
-		}
+		// todo: Uncomment after cardinal Components API updates to 1.21.9
+//		if (!entity.hasCustomName()) {
+//			int counter = VillagerNames.INT_COMPONENT.get(world.getLevelProperties()).getValue() + 1;
+//			entity.setCustomName(Text.literal("Test Subject " + counter).formatted(CONFIG.villagerGeneralConfig.villagerTextFormatting.getFormatting()));
+//			VillagerNames.INT_COMPONENT.get(world.getLevelProperties()).setValue(counter);
+//		}
 	}
 
 	public static void createVillagerNames(VillagerEntity entity) {

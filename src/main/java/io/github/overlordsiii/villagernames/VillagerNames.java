@@ -4,9 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.github.overlordsiii.villagernames.command.VillagerNameCommand;
 import io.github.overlordsiii.villagernames.config.VillagerConfig;
-import io.github.overlordsiii.villagernames.integration.cca.IntComponent;
-import io.github.overlordsiii.villagernames.integration.cca.RavagerCounterComponent;
-//import io.github.overlordsiii.villagernames.integration.guardvillagers.GuardVillagersIntegration;
+// todo: Uncomment after cardinal Components API updates to 1.21.9
+//import io.github.overlordsiii.villagernames.integration.cca.IntComponent;
+//import io.github.overlordsiii.villagernames.integration.cca.RavagerCounterComponent;
 import io.github.overlordsiii.villagernames.util.NamesLoader;
 import io.github.overlordsiii.villagernames.util.VillagerUtil;
 import io.github.overlordsiii.villagernames.util.dev.NameDebugger;
@@ -17,10 +17,11 @@ import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.ladysnake.cca.api.v3.component.ComponentKey;
-import org.ladysnake.cca.api.v3.component.ComponentRegistry;
-import org.ladysnake.cca.api.v3.level.LevelComponentFactoryRegistry;
-import org.ladysnake.cca.api.v3.level.LevelComponentInitializer;
+// todo: Uncomment after cardinal Components API updates to 1.21.9
+//import org.ladysnake.cca.api.v3.component.ComponentKey;
+//import org.ladysnake.cca.api.v3.component.ComponentRegistry;
+//import org.ladysnake.cca.api.v3.level.LevelComponentFactoryRegistry;
+//import org.ladysnake.cca.api.v3.level.LevelComponentInitializer;
 
 import net.minecraft.entity.mob.AbstractPiglinEntity;
 import net.minecraft.entity.mob.RavagerEntity;
@@ -39,11 +40,12 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.loader.api.FabricLoader;
 
 @SuppressWarnings({"UnstableApiUsage", "unused"})
-public class VillagerNames implements ModInitializer, LevelComponentInitializer {
+public class VillagerNames implements ModInitializer/*, LevelComponentInitializer*/ { // todo: Uncomment after cardinal Components API updates to 1.21.9
 	public static ConfigManager<VillagerConfig> CONFIG_MANAGER;
 	public static VillagerConfig CONFIG;
 	public static final Logger LOGGER = LogManager.getLogger(VillagerNames.class);
-	public static final ComponentKey<IntComponent> INT_COMPONENT = ComponentRegistry.getOrCreate(Identifier.of("villagernames", "intcomponent"), IntComponent.class);
+	// todo: Uncomment after cardinal Components API updates to 1.21.9
+//public static final ComponentKey<IntComponent> INT_COMPONENT = ComponentRegistry.getOrCreate(Identifier.of("villagernames", "intcomponent"), IntComponent.class);
 
 	public static final Gson GSON = new GsonBuilder()
 		.setPrettyPrinting()
@@ -103,16 +105,17 @@ public class VillagerNames implements ModInitializer, LevelComponentInitializer 
 
 	}
 
-	/**
-	 * Called to register component factories for statically declared component types.
-	 *
-	 * <p><strong>The passed registry must not be held onto!</strong> Static component factories
-	 * must not be registered outside of this method.
-	 *
-	 * @param registry a {@link LevelComponentFactoryRegistry} for <em>statically declared</em> components
-	 */
-	@Override
-	public void registerLevelComponentFactories(LevelComponentFactoryRegistry registry) {
-		registry.register(INT_COMPONENT, worldProperties -> new RavagerCounterComponent());
-	}
+// todo: Uncomment after cardinal Components API updates to 1.21.9
+//	/**
+//	 * Called to register component factories for statically declared component types.
+//	 *
+//	 * <p><strong>The passed registry must not be held onto!</strong> Static component factories
+//	 * must not be registered outside of this method.
+//	 *
+//	 * @param registry a {@link LevelComponentFactoryRegistry} for <em>statically declared</em> components
+//	 */
+//	@Override
+//	public void registerLevelComponentFactories(LevelComponentFactoryRegistry registry) {
+//		registry.register(INT_COMPONENT, worldProperties -> new RavagerCounterComponent());
+//	}
 }
