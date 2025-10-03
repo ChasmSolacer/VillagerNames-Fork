@@ -3,12 +3,12 @@ plugins {
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_21
-targetCompatibility = JavaVersion.VERSION_21
-
-archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
 
 repositories {
 	// Add repositories to retrieve artifacts from in here.
@@ -37,7 +37,7 @@ repositories {
 	}
 
 	maven {
-		name 'TerraformersMC';
+		name 'TerraformersMC'
 		url 'https://maven.terraformersmc.com/'
 	}
 	maven {
@@ -63,14 +63,12 @@ dependencies {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 
-		// todo: Uncomment after Mod Menu updates to 1.21.9
-//	modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}") {
-//		exclude module: 'fabric-api' // includes bad Fabric API
-//	}
+	modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}") {
+		exclude module: 'fabric-api' // includes bad Fabric API
+	}
 
-		// todo: Uncomment after Cardinal Components API updates to 1.21.9
+	// todo: Uncomment after Cardinal Components API updates to 1.21.9
 //	modApi include("org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}")
-//
 //	modApi include("org.ladysnake.cardinal-components-api:cardinal-components-level:${project.cca_version}")
 
 	// Guard Villagers mod is out-of-date
@@ -103,18 +101,24 @@ java {
 	// if it is present.
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
+	inputs.property "archivesName", project.base.archivesName
+
 	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
+		rename { "${it}_${inputs.properties.archivesName}" }
 	}
 }
 
 // configure the maven publication
 publishing {
 	publications {
-		mavenJava(MavenPublication) {
+		create("mavenJava", MavenPublication) {
+			artifactId = project.archives_base_name
 			from components.java
 		}
 	}
