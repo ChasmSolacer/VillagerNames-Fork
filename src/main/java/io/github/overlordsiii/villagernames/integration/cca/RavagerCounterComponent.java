@@ -1,4 +1,4 @@
-// todo: Uncomment after cardinal Components API updates to 1.21.9
+// todo: Uncomment after cardinal Components API updates to 1.21.11
 //package io.github.overlordsiii.villagernames.integration.cca;
 //
 //import net.minecraft.storage.ReadView;

@@ -21,6 +21,7 @@ import io.github.overlordsiii.villagernames.config.names.PiglinSurnamesConfig;
 import io.github.overlordsiii.villagernames.config.names.SureNamesConfig;
 import io.github.overlordsiii.villagernames.config.VillagerGeneralConfig;
 import io.github.overlordsiii.villagernames.config.names.VillagerNamesConfig;
+import net.minecraft.command.DefaultPermissions;
 import net.minecraft.text.MutableText;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,7 +39,7 @@ import net.fabricmc.loader.api.FabricLoader;
 public class VillagerNameCommand {
 	public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
 		dispatcher.register(literal("villagername")
-			.requires(source -> VillagerNames.CONFIG.villagerGeneralConfig.needsOP ? source.hasPermissionLevel(2) : source.hasPermissionLevel(4))
+			.requires(source -> VillagerNames.CONFIG.villagerGeneralConfig.needsOP ? source.getPermissions().hasPermission(DefaultPermissions.GAMEMASTERS) : source.getPermissions().hasPermission(DefaultPermissions.OWNERS))
 			.then(literal("toggle")
 				.then(literal("professionNames")
 					.executes(context -> executeToggle(context, "professionNames", "Profession names are now toggled %s")))
