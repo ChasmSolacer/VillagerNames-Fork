@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.11-SNAPSHOT'
+	id 'fabric-loom' version '1.15-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -57,7 +57,7 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
 	modApi include("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
@@ -67,9 +67,8 @@ dependencies {
 		exclude module: 'fabric-api' // includes bad Fabric API
 	}
 
-	// todo: Uncomment after Cardinal Components API updates to 1.21.9
-//	modApi include("org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}")
-//	modApi include("org.ladysnake.cardinal-components-api:cardinal-components-level:${project.cca_version}")
+	modApi include("org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}")
+	modApi include("org.ladysnake.cardinal-components-api:cardinal-components-level:${project.cca_version}")
 
 	// Guard Villagers mod is out-of-date
 	//modImplementation 'curse.maven:guardvillagers-571503:5427036'
